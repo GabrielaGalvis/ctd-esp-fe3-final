@@ -5,11 +5,10 @@ const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
   const [customer, setCustomer] = useState({
     name: "",
-    email: "",
+    email: ""
   });
 
-  const [errorForm, setErrorForm] = useState(false)
-  const [mensajeForm, setMensajeForm] = useState(false)
+  const [mensajeForm, setMensajeForm] = useState("")
 
   const handleChangeName = (event)=>{
     setCustomer({...customer, name: event.target.value})
@@ -24,13 +23,9 @@ const Form = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     console.log(emailRegex.test(customer.email));
     if(customer.name.trim().length > 5 && emailRegex.test(customer.email)){
-      console.log('hola')
-      setErrorForm(false)
-      setMensajeForm(true)
+      setMensajeForm(`Gracias ${customer.name} te contactaremos cuanto antes via email`)
     }else{
-      console.log('nopis')
-      setErrorForm(true)
-      setMensajeForm(false)
+      setMensajeForm("Por favor verifique su información nuevamente. El nombre debe tener más de 5 letrás y el correo debe tener un formato valido")
     }
   }
 
@@ -55,8 +50,7 @@ const Form = () => {
             <button>Enviar</button>
       </form>
 
-      {errorForm && <p>Por favor verifique su información nuevamente</p> }
-      { mensajeForm && <p>Gracias {customer.name} te contactaremos cuanto antes via email</p>}
+      {<p>{mensajeForm}</p>}
       
     </div>
   );
