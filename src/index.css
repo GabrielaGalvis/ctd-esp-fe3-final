@@ -17,6 +17,7 @@ code {
   border: none;
   width: 100%;
   cursor: pointer;
+  margin: 10px;
 }
 
 h1{
@@ -25,8 +26,8 @@ h1{
 
 nav{
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
+  width: 100%;
+  justify-content: space-around;
   padding: 1rem;
 }
 
@@ -113,10 +114,38 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
+body.dark{
   background-color: #12121296;
   color: white;
 }
-.dark > a {
+.dark  a {
   color: white;
 }
+
+body.light{
+  background-color: #FFFFFF;
+  color: black;
+}
+.light  a {
+  color: black;
+}
+
+nav.light{
+  background-color: #dddddd;
+  color: black;
+}
+
+nav.dark{
+  background-color: #000000;
+  color: white;
+}
+
+.botonTema{
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+  width: 8%;
+  cursor: pointer;
+  margin: 10px;
+}
+
